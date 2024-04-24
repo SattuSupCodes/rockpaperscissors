@@ -1,0 +1,67 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #94B9FF;
+}
+
+.choices{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    grid-gap: 40px;
+    margin-top: 50px;
+    padding: 30px 0;
+    
+
+}
+.choices div{
+    background: white;
+    padding: 40px;
+    font-size: 13px;
+    font-weight: 300;
+    border-radius: 10px;
+    transition: background 0.5s, transform 0.5s;
+}
+.choices div i{
+    font-size: 50px;
+    margin-bottom: 30px;
+}
+.choices div h2{
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+
+.choices.paper{
+    padding-right: 30px;
+    margin-right: 30px;
+}
+.choices div:hover{
+    background-color: lightpink;
+    
+}
+.result{
+    text-align: center;
+    font-size: 60px;
+}
+.playbtn button {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    
+    border-radius: 10px;
+    height: 50px;
+   
+    background-color: lightcyan;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    
+    
+
+}
+
+       
