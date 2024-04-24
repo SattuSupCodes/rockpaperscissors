@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rock Paper Scissors</title>
+<link rel="stylesheet" href="game.css">
+<script src="https://kit.fontawesome.com/fbf54b4b97.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        
+        <div class="choices">
+            <button class="choice-btn" onclick="play('rock')">
+            <div class="rock">
+                <i class="fa-regular fa-hand-back-fist"></i>
+                <h2>Rock</h2>
+            </div>
+            </button>
+            <button class="choice-btn" onclick="play('scissors')">
+            <div class="Scissors">
+                <i class="fa-regular fa-hand-scissors"></i>
+                <h2>Scissors</h2>
+            </div>
+            </button>
+            <button class="choice-btn" onclick="play('paper')">
+            <div class="Paper">
+                <i class="fa-regular fa-hand"></i>
+                <h2>Paper</h2>
+            </div>
+            </button>
+        </div>
+    </div>
+    <div class="result" id="result"></div>
+   <div class="playbtn"> <button class="play-again" id="playAgainBtn" style="display: none;" onclick="resetGame()">Play Again</button></div>
+</div>
+
+</body>
+
+<script>
+    function play(userChoice) {
+        var choices = ['rock', 'paper', 'scissors'];
+        var computerChoice = choices[Math.floor(Math.random() * choices.length)];
+        
+        var result = "";
+        if (userChoice === computerChoice) {
+            result = "It's a tie!";
+        } else if ((userChoice === 'rock' && computerChoice === 'scissors') ||
+                   (userChoice === 'paper' && computerChoice === 'rock') ||
+                   (userChoice === 'scissors' && computerChoice === 'paper')) {
+            result = "You win!";
+        } else {
+            result = "Computer wins!";
+        }
+        
+        document.getElementById("result").textContent = result;
+        document.getElementById("playAgainBtn").style.display = "block";disableChoices();
+    }
+
+    
+        
+    
+
+        function disableChoices() {
+            choicesEnabled = false;
+            var choiceButtons = document.querySelectorAll('.choice-btn');
+            choiceButtons.forEach(function(button) {
+                button.disabled = true;
+            });
+        }
+    
+        function resetGame() {
+            choicesEnabled = true;
+            document.getElementById("result").textContent = "";
+            document.getElementById("playAgainBtn").style.display = "none";
+            var choiceButtons = document.querySelectorAll('.choice-btn');
+            choiceButtons.forEach(function(button) {
+                button.disabled = false;
+            });
+        }
+</script>
+
