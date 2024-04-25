@@ -11,34 +11,40 @@
     <div class="container">
         
         <div class="choices">
-            <button class="choice-btn" onclick="play('rock')">
+            <button class="choice-btn" onclick="play('rock')" data-choice="rock">
             <div class="rock">
                 <i class="fa-regular fa-hand-back-fist"></i>
                 <h2>Rock</h2>
             </div>
             </button>
-            <button class="choice-btn" onclick="play('scissors')">
+            <button class="choice-btn" onclick="play('scissors')" data-choice="scissors">
             <div class="Scissors">
                 <i class="fa-regular fa-hand-scissors"></i>
                 <h2>Scissors</h2>
             </div>
             </button>
-            <button class="choice-btn" onclick="play('paper')">
+            <button class="choice-btn" onclick="play('paper')" data-choice="paper">
             <div class="Paper">
                 <i class="fa-regular fa-hand"></i>
                 <h2>Paper</h2>
             </div>
             </button>
         </div>
-    </div>
-    <div class="result" id="result"></div>
+        <div class="result" id="result"></div>
    <div class="playbtn"> <button class="play-again" id="playAgainBtn" style="display: none;" onclick="resetGame()">Play Again</button></div>
+    </div>
+    
 </div>
 
 </body>
 
 <script>
+    var choicesEnabled = true;
+
     function play(userChoice) {
+        if (!choicesEnabled) return;
+    
+    
         var choices = ['rock', 'paper', 'scissors'];
         var computerChoice = choices[Math.floor(Math.random() * choices.length)];
         
@@ -53,7 +59,7 @@
             result = "Computer wins!";
         }
         
-        document.getElementById("result").textContent = result;
+        document.getElementById("result").textContent = `Computer chose ${computerChoice}. ${result}`;
         document.getElementById("playAgainBtn").style.display = "block";disableChoices();
     }
 
@@ -79,4 +85,6 @@
             });
         }
 </script>
+
+
 
